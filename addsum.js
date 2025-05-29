@@ -3,7 +3,6 @@
  * @return {string}
  */
 var longestCommonPrefix = function(strs) {
-
     let prevWord = '';
     let sampleText = strs[0]
     let currentWord = sampleText;
@@ -12,10 +11,7 @@ var longestCommonPrefix = function(strs) {
     strs.forEach((word, strIndex) => {
         prevWord = currentWord;
         currentWord = word
-
-        console.log('AAA', );
         const splittedWord = word.split('');
-        console.log('splittedWord', splittedWord)
         let cache;
         let cacheVal;
         if(splittedWord){
@@ -47,13 +43,8 @@ var longestCommonPrefix = function(strs) {
         } else if(e.length < min) {
             min = e.length
         }
-
     });
-    console.log('min', min)
-
     const outputText = output && Object.keys(output).length == strs.length ? sampleText.substring(0, min) : '';
-    console.log('outputText', outputText);
-
     return outputText;
     
 };

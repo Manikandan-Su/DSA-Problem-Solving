@@ -12,7 +12,30 @@ class LinkedList{
         this.length = 1;
     }
 
-    push(value){
+    search(value){
+        let temp = this.head;
+        while(temp){
+            if(temp.value == value){
+                return true;
+            }
+            temp = temp.next
+        };
+        return false;
+    }
+
+    delete(value) {
+        let temp = this.head;
+        while(temp){
+            if(temp.value == value){
+                temp.value = temp.next.value;
+                temp.next = temp.next.next;
+            };
+            temp = temp.next;
+        };
+        this.length--;
+    }
+
+    push(value) {
         let temp = new Node(value);
         this.tail.next = temp;
         this.tail = temp;
@@ -21,23 +44,21 @@ class LinkedList{
     }
 
 
-    pop(){
+    pop() {
         let temp = this.head;
-        let currentNode;
-        let nextNode;
-
-        while(temp.next){
-            currentNode = temp;
-            nextNode = temp.next;
-            temp = nextNode
+        let current = temp;
+        let nextValue = temp.next
+        while (temp.next) {
+            current = temp;
+            nextValue = temp.next;
+            temp = nextValue;
         };
-
-        this.tail = currentNode;
+        this.tail = current;
         this.tail.next = null;
-        this.length--;
+        this.length--
     }
 
-    shift(value){
+    shift(value) {
         let newNode = new Node(value)
         newNode.next = this.head;
         this.head = newNode;
@@ -52,8 +73,9 @@ class LinkedList{
 };
 
 const list = new LinkedList(3);
-console.log('list initialvalues', list)
 list.push(6);
-console.log('After pushing one value', list)
-list.reverse();
+list.push(9);
+list.push(12);
+list.delete(6);
+console.log('List', list)
 

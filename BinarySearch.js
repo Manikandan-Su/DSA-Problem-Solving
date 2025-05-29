@@ -1,10 +1,7 @@
 const inputData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const targetValue = 4;
 
-
-
 function binarySearch(inputArr, target) {
-
     let left = 0;
     let right = inputArr.length - 1;
     while (left <= right) {
