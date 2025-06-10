@@ -46,22 +46,23 @@ class LinkedList{
 
     pop() {
         let temp = this.head;
-        let current = temp;
-        let nextValue = temp.next
-        while (temp.next) {
-            current = temp;
+        let currentValue = temp;
+        let nextValue = temp.next;
+
+        while(temp.next){
+            currentValue = temp;
             nextValue = temp.next;
             temp = nextValue;
-        };
-        this.tail = current;
+        }
+        this.tail = currentValue;
         this.tail.next = null;
-        this.length--
+        this.length--;
     }
 
     shift(value) {
-        let newNode = new Node(value)
-        newNode.next = this.head;
-        this.head = newNode;
+        let newOne = new Node(value);
+        newOne.next = this.head;
+        this.head = newOne;
         this.length++;
     };
 
@@ -76,6 +77,6 @@ const list = new LinkedList(3);
 list.push(6);
 list.push(9);
 list.push(12);
-list.delete(6);
+list.shift(2)
 console.log('List', list)
 

@@ -44,7 +44,8 @@ function isValidParanthisis(string){
         if(map.get(firstSymbol) == lastSymbol){
             stackValue.pop();
         } else {
-            valid = false
+            valid = false;
+            break;
         }
     };
     return valid;
